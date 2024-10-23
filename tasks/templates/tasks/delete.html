@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Confirmation</title>
+
+    <!-- Link to CSS file from static -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="delete-confirmation-container">
+        <p>Are you sure you want to delete "{{ item }}"?</p>
+
+        <a class="cancel-button" href="{% url 'list' %}">Cancel</a>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="submit" class="confirm-button" value="Confirm">
+        </form>
+    </div>
+
+</body>
+</html>
